@@ -17,7 +17,6 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#include "../../bcm21553-common/bluetooth/bdroid_buildcfg.h"
 #define BTM_DEF_LOCAL_NAME   "SM-G313HZ"
 
 #endif

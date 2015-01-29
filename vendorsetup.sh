@@ -1,1 +1,2 @@
 add_lunch_combo cm_vivalto3gvndx-userdebug
+#add_lunch_combo omni_vivalto3gvndx-eng
