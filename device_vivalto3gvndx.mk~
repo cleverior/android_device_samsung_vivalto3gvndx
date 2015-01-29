@@ -27,6 +27,7 @@ PRODUCT_COPY_FILES += \
 	device/samsung/vivalto3gvndx/init.wifi.rc:root/init.wifi.rc \
 	device/samsung/vivalto3gvndx/ueventd.scx15.rc:root/ueventd.scx15.rc \
         device/samsung/vivalto3gvndx/init.recovery.scx15.rc:root/init.recovery.scx15.rc \
+	#device/samsung/vivalto3gvndx/fstab.rhea_ss_corsica:root/fstab.rhea_ss_corsica 
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_vivalto3gvndx
