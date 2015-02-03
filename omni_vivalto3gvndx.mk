@@ -33,7 +33,6 @@ PRODUCT_COPY_FILES += \
 	device/samsung/vivalto3gvndx/init.wifi.rc:root/init.wifi.rc \
 	device/samsung/vivalto3gvndx/ueventd.scx15.rc:root/ueventd.scx15.rc \
         device/samsung/vivalto3gvndx/init.recovery.scx15.rc:root/init.recovery.scx15.rc \
-	#device/samsung/vivalto3gvndx/fstab.rhea_ss_corsica:root/fstab.rhea_ss_corsica 
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := omni_vivalto3gvndx

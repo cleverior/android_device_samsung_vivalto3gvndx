@@ -13,7 +13,7 @@
 # limitations under the License.
 
 LOCAL_PATH := device/samsung/vivalto3gvndx
-KERNEL_PATH := kernel/samsung/vivalto3gvndx/
+KERNEL_PATH := kernel/samsung/vivalto3gvndx
 
 USE_CAMERA_STUB := true
 
@@ -39,16 +39,19 @@ BOARD_KERNEL_PAGESIZE 				:= 2048
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE 			:= 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE 		:= 8388608
-BOARD_SYSTEMIMAGE_PARTITION_SIZE 		:= 1111490560
-BOARD_USERDATAIMAGE_PARTITION_SIZE 		:= 2457862144
+BOARD_SYSTEMIMAGE_PARTITION_SIZE 		:= 524288000
+BOARD_USERDATAIMAGE_PARTITION_SIZE 		:= 1073741824
 BOARD_FLASH_BLOCK_SIZE 				:= 131072
 
 BOARD_HAS_LARGE_FILESYSTEM 			:= true
 
 #boot = mmcblk0p11 = 8 MB
 #recovery = mmcblk0p12 = 8 MB
-#system = mmcblk0p18 = 1 GB
+#system = mmcblk0p18 = 1 GB =1073741824
 #userdata/data = mmcblk0p20 = 2.2 GB
+# 419430400 = 400 MB
+# 524288000 = 500 MB
+# 2362232013 = 2.2 GB
 
 BOARD_CACHE_DEVICE 				:= /dev/block/mmcblk0p17
 BOARD_CACHE_FILESYSTEM 				:= ext4
@@ -65,6 +68,15 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR	:= $(LOCAL_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH 				:= true
 BOARD_BLUEDROID_VENDOR_CONF 			:= $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 
+# Hardware rendering
+USE_OPENGL_RENDERER 				:= true
+BOARD_EGL_CFG 					:= $(LOCAL_PATH)/egl.cfg
+BOARD_EGL_NEEDS_FNW 				:= true
+COMMON_GLOBAL_CFLAGS 				+= -DEGL_NEEDS_FNW
+
+# Platform
+#COMMON_GLOBAL_CFLAGS 				+= -DSPRD_HARDWARE
+
 # kernel
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN			:= arm-eabi-4.7
 #TARGET_KERNEL_CONFIG 				:= vivalto3g-native_hw04_defconfig
@@ -76,16 +88,10 @@ TARGET_PREBUILT_KERNEL				:= $(LOCAL_PATH)/kernel
 
 # Recovery
 #BOARD_XHDPI_RECOVERY 				:= true
-#BOARD_USE_CUSTOM_RECOVERY_FONT 		:= "<font_7x16.h>"
-BOARD_CUSTOM_RECOVERY_KEYMAPPING 		:= ../../$(LOCAL_PATH)/etc/recovery_keys.c
+#BOARD_CUSTOM_RECOVERY_KEYMAPPING 		:= ../../$(LOCAL_PATH)/etc/recovery_keys.c
 BOARD_HAS_NO_REAL_SDCARD 			:= true
 BOARD_HAS_NO_SELECT_BUTTON 			:= true
 #BOARD_TOUCH_RECOVERY 				:= true
-DEVICE_RESOLUTION 				:= 480x800
-INTERNAL_STORAGE_PATH 				:= "/data/media/0"
-INTERNAL_STORAGE_MOUNT_POINT 			:= "data"
-EXTERNAL_STORAGE_PATH 				:= "/sdcard"
-EXTERNAL_STORAGE_MOUNT_POINT 			:= "sdcard"
 TARGET_RECOVERY_PIXEL_FORMAT 			:= "RGBX_8888"
 
 # Recovery Variant
@@ -114,8 +120,9 @@ TW_NO_REBOOT_BOOTLOADER 			:= true
 TWHAVE_SELINUX 					:= true
 TARGET_RECOVERY_INITRC 				:= $(LOCAL_PATH)/init.rc
 TARGET_RECOVERY_FSTAB 				:= $(LOCAL_PATH)/etc/vivalto3gvndx.fstab
-TW_CPU_TEMP					:= true
 TW_HAS_DOWNLOAD_MODE				:= true
+DEVICE_RESOLUTION 				:= 480x800
+BOARD_USE_CUSTOM_RECOVERY_FONT 			:= \"roboto_10x18.h\"
 
 # Philz
 TARGET_SCREEN_HEIGHT				:= 800

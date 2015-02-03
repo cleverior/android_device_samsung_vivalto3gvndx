@@ -1,6 +1,7 @@
 #
 # system.prop for vivalto3gvndx
 #
+ro.sf.lcd_density=240
 ro.sf.lcd_width=52
 ro.sf.lcd_height=87
 ro.opengles.version=131072
@@ -83,3 +84,5 @@ ro.config.dha_margin_min_extra=10
 
 # Control EONS (true = EONS enabled, false = EONS disabled)
 persist.eons.enabled=true
+
+persist.sys.sprd.modemreset=0
