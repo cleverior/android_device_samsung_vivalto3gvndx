@@ -1,7 +1,4 @@
 LOCAL_PATH := device/samsung/vivalto3gvndx
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
@@ -13,8 +10,15 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # currently contain all of the bitmaps at hdpi density so
 # we do this little trick to fall back to the mdpi version
 # if the hdpi doesn't exist.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
 PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi nodpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
+
+# languages
+PRODUCT_LOCALES := en_US fr_FR it_IT es_ES de_DE nl_NL cs_CZ pl_PL ja_JP zh_TW zh_CN ru_RU ko_KR nb_NO es_US da_DK el_GR tr_TR pt_PT pt_BR rm_CH sv_SE bg_BG ca_ES en_GB fi_FI hi_IN hr_HR hu_HU in_ID iw_IL lt_LT lv_LV ro_RO sk_SK sl_SI sr_RS uk_UA vi_VN tl_PH ar_EG fa_IR th_TH sw_TZ ms_MY af_ZA zu_ZA am_ET hi_IN
+
+PRODUCT_LOCALES += hdpi
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -34,13 +38,25 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     	$(LOCAL_PATH)/rootdir/etc/extra.fstab:recovery/root/etc/extra.fstab
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_vivalto3gvndx
-PRODUCT_DEVICE := vivalto3gvndx
-PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-G313HZ
+# Override phone-hdpi-512-dalvik-heap to match value on stock
+# - helps pass CTS com.squareup.okhttp.internal.spdy.Spdy3Test#tooLargeDataFrame)
+# (property override must come before included property)
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=56m \
+
+# Dalvik heap config
+include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
+
+# we have enough storage space to hold precise GC data
+PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Set insecure for root access and device specifics
 #ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0 \
 #ro.allow.mock.location=1 \
 #ro.debuggable=1 
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_NAME := full_vivalto3gvndx
+PRODUCT_DEVICE := vivalto3gvndx
+PRODUCT_BRAND := samsung
+PRODUCT_MODEL := SM-G313HZ

@@ -63,10 +63,13 @@ BOARD_BLUEDROID_VENDOR_CONF 			:= $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 
 # Hardware rendering
 USE_OPENGL_RENDERER 				:= true
-BOARD_EGL_CFG 					:= $(LOCAL_PATH)/egl.cfg
+BOARD_EGL_CFG 					:= device/samsung/vivalto3gvndx/egl.cfg
+BOARD_USE_MHEAP_SCREENSHOT                      := true
+BOARD_EGL_WORKAROUND_BUG_10194508               := true
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK           := true
 BOARD_EGL_NEEDS_FNW 				:= true
-COMMON_GLOBAL_CFLAGS 				+= -DEGL_NEEDS_FNW 
 COMMON_GLOBAL_CFLAGS 				+= -DNEEDS_VECTORIMPL_SYMBOLS
+COMMON_GLOBAL_CFLAGS                            += -DMR0_CAMERA_BLOB -DEGL_NEEDS_FNW -DMR0_AUDIO_BLOB -DSAMSUNG_BCM_AUDIO_BLOB
 
 # Platform
 #COMMON_GLOBAL_CFLAGS 				+= -DSPRD_HARDWARE
