@@ -103,7 +103,7 @@ TARGET_OTA_ASSERT_DEVICE 			:= SM-G313HZ, sm-g313hz, vivalto3gvn, vivalto3gvndx
 
 # graphics
 ## TARGET_GPU_PP_CORE := 2
-USE_SPRD_HWCOMPOSER                             := true
+#USE_SPRD_HWCOMPOSER                             := true
 USE_OPENGL_RENDERER                             := true
 USE_OVERLAY_COMPOSER_GPU                        := true
 DEVICE_FORCE_VIDEO_GO_OVERLAYCOMPOSER           := true
