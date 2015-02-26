@@ -68,35 +68,14 @@ BOARD_EGL_NEEDS_FNW 				:= true
 COMMON_GLOBAL_CFLAGS 				+= -DNEEDS_VECTORIMPL_SYMBOLS
 COMMON_GLOBAL_CFLAGS                            += -DMR0_CAMERA_BLOB -DEGL_NEEDS_FNW -DMR0_AUDIO_BLOB -DSAMSUNG_BCM_AUDIO_BLOB -DSCX15_HWC
 
-# Platform
-#COMMON_GLOBAL_CFLAGS 				+= -DSPRD_HARDWARE
-
-# kernel
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN			:= arm-eabi-4.7
-#TARGET_KERNEL_CONFIG 				:= vivalto3g-native_hw04_defconfig
-#TARGET_KERNEL_SOURCE				:= $(KERNEL_PATH)/common
-
 # kernel
 TARGET_PREBUILT_KERNEL                          := $(DEVICE_FOLDER)/prebuilt/kernel
 
-#TARGET_PREBUILT_RECOVERY 			:= $(LOCAL_PATH)/recovery
-#TARGET_PREBUILT_RECOVERY_KERNEL 		:= $(LOCAL_PATH)/recovery
-#TARGET_RECOVERY_INITRC	 			:= $(LOCAL_PATH)/recovery/init.recovery.scx15.rc
-
 # Recovery
-#BOARD_XHDPI_RECOVERY 				:= true
-#BOARD_CUSTOM_RECOVERY_KEYMAPPING 		:= ../../$(LOCAL_PATH)/etc/recovery_keys.c
 BOARD_HAS_NO_REAL_SDCARD 			:= true
 BOARD_HAS_NO_SELECT_BUTTON 			:= true
 #BOARD_TOUCH_RECOVERY 				:= true
 TARGET_RECOVERY_PIXEL_FORMAT 			:= "RGBX_8888"
-
-# Recovery Variant
-#RECOVERY_VARIANT 				:= recovery
-#RECOVERY_VARIANT 				:= recovery-philz
-#RECOVERY_VARIANT 				:= recovery-twrp
-#RECOVERY_VARIANT 				:= recovery-carliv
-#RECOVERY_VARIANT 				:= recovery-twrp
 
 # assert
 TARGET_OTA_ASSERT_DEVICE 			:= SM-G313HZ, sm-g313hz, vivalto3gvn, vivalto3gvndx
