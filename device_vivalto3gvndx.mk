@@ -4,7 +4,8 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 $(call inherit-product-if-exists, vendor/samsung/vivalto3gvndx/vivalto3gvndx-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+# overrlay import
+#DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay       #currently disabled arent where we improve this to ride up
 
 # This device is hdpi.  However the platform doesn't
 # currently contain all of the bitmaps at hdpi density so
@@ -24,19 +25,19 @@ $(call inherit-product, build/target/product/full.mk)
 
 # Init files
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/init.scx15_ss.rc:root/init.scx15_ss.rc \
-	$(LOCAL_PATH)/init.vivalto3gvn.rc:root/init.vivalto3gvn.rc \
-	$(LOCAL_PATH)/init.vivalto3gvn_base.rc:root/init.vivalto3gvn_base.rc \
-	$(LOCAL_PATH)/init.wifi.rc:root/init.wifi.rc \
-	$(LOCAL_PATH)/fstab.scx15:root/fstab.scx15 \
-	$(LOCAL_PATH)/init.board.rc:root/init.board.rc \
-	$(LOCAL_PATH)/init.scx15.rc:root/init.scx15.rc \
-	$(LOCAL_PATH)/init.scx15.usb.rc:root/init.scx15.usb.rc \
-	$(LOCAL_PATH)/ueventd.scx15.rc:root/ueventd.scx15.rc \
-        $(LOCAL_PATH)/init.recovery.scx15.rc:root/init.recovery.scx15.rc
+	device/samsung/vivalto3gvndx/init.scx15_ss.rc:root/init.scx15_ss.rc \
+	device/samsung/vivalto3gvndx/init.vivalto3gvn.rc:root/init.vivalto3gvn.rc \
+	device/samsung/vivalto3gvndx/init.vivalto3gvn_base.rc:root/init.vivalto3gvn_base.rc \
+	device/samsung/vivalto3gvndx/init.wifi.rc:root/init.wifi.rc \
+	device/samsung/vivalto3gvndx/fstab.scx15:root/fstab.scx15 \
+	device/samsung/vivalto3gvndx/init.board.rc:root/init.board.rc \
+	device/samsung/vivalto3gvndx/init.scx15.rc:root/init.scx15.rc \
+	device/samsung/vivalto3gvndx/init.scx15.usb.rc:root/init.scx15.usb.rc \
+	device/samsung/vivalto3gvndx/ueventd.scx15.rc:root/ueventd.scx15.rc \
+        device/samsung/vivalto3gvndx/init.recovery.scx15.rc:root/init.recovery.scx15.rc
 
 PRODUCT_COPY_FILES += \
-    	$(LOCAL_PATH)/rootdir/etc/extra.fstab:recovery/root/etc/extra.fstab
+    	device/samsung/vivalto3gvndx/rootdir/etc/extra.fstab:recovery/root/etc/extra.fstab
 
 # Override phone-hdpi-512-dalvik-heap to match value on stock
 # - helps pass CTS com.squareup.okhttp.internal.spdy.Spdy3Test#tooLargeDataFrame)

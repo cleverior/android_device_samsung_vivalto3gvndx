@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH  := device/samsung/vivalto3gvndx
-KERNEL_PATH := kernel/samsung/vivalto3gvndx
-
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
@@ -57,9 +54,9 @@ BOARD_DATA_FILESYSTEM 				:= ext4
 BOARD_DATA_FILESYSTEM_OPTIONS 			:= rw
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR	:= $(LOCAL_PATH)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR	:= device/samsung/vivalto3gvndx/bluetooth
 BOARD_HAVE_BLUETOOTH 				:= true
-BOARD_BLUEDROID_VENDOR_CONF 			:= $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
+BOARD_BLUEDROID_VENDOR_CONF 			:= device/samsung/vivalto3gvndx/bluetooth/libbt_vndcfg.txt
 
 # Hardware rendering
 USE_OPENGL_RENDERER 				:= true
@@ -106,10 +103,10 @@ TARGET_OTA_ASSERT_DEVICE 			:= SM-G313HZ, sm-g313hz, vivalto3gvn, vivalto3gvndx
 
 # graphics
 ## TARGET_GPU_PP_CORE := 2
-USE_SPRD_HWCOMPOSER  := true
-USE_OPENGL_RENDERER := true
-USE_OVERLAY_COMPOSER_GPU := true
-DEVICE_FORCE_VIDEO_GO_OVERLAYCOMPOSER := true
+USE_SPRD_HWCOMPOSER                             := true
+USE_OPENGL_RENDERER                             := true
+USE_OVERLAY_COMPOSER_GPU                        := true
+DEVICE_FORCE_VIDEO_GO_OVERLAYCOMPOSER           := true
 
 # TWRP
 #RECOVERY_SDCARD_ON_DATA 			:= true
@@ -126,8 +123,8 @@ TW_FLASH_FROM_STORAGE 				:= true
 TW_NO_REBOOT_BOOTLOADER 			:= true
 TW_CUSTOM_CPU_TEMP_PATH				:= "/sys/devices/platform/sec-thermistor/temperature"
 TWHAVE_SELINUX 					:= true
-TARGET_RECOVERY_INITRC 				:= $(LOCAL_PATH)/init.rc
-TARGET_RECOVERY_FSTAB 				:= $(LOCAL_PATH)/etc/vivalto3gvndx.fstab
+TARGET_RECOVERY_INITRC 				:= device/samsung/vivalto3gvndx/etc/init.r
+TARGET_RECOVERY_FSTAB 				:= device/samsung/vivalto3gvndx/etc/vivalto3gvndx.fstab
 TW_HAS_DOWNLOAD_MODE				:= true
 DEVICE_RESOLUTION 				:= 480x800
 BOARD_USE_CUSTOM_RECOVERY_FONT 			:= \"roboto_10x18.h\"
