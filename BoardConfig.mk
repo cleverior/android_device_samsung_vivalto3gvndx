@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/samsung/vivalto3gvndx
+LOCAL_PATH  := device/samsung/vivalto3gvndx
 KERNEL_PATH := kernel/samsung/vivalto3gvndx
 
 USE_CAMERA_STUB := true
@@ -75,7 +75,10 @@ COMMON_GLOBAL_CFLAGS 				+= -DNEEDS_VECTORIMPL_SYMBOLS
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN			:= arm-eabi-4.7
 #TARGET_KERNEL_CONFIG 				:= vivalto3g-native_hw04_defconfig
 #TARGET_KERNEL_SOURCE				:= $(KERNEL_PATH)/common
-TARGET_PREBUILT_KERNEL				:= $(LOCAL_PATH)/kernel
+
+# kernel
+TARGET_PREBUILT_KERNEL                          := $(DEVICE_FOLDER)/prebuilt/kernel
+
 #TARGET_PREBUILT_RECOVERY 			:= $(LOCAL_PATH)/recovery
 #TARGET_PREBUILT_RECOVERY_KERNEL 		:= $(LOCAL_PATH)/recovery
 #TARGET_RECOVERY_INITRC	 			:= $(LOCAL_PATH)/recovery/init.recovery.scx15.rc
