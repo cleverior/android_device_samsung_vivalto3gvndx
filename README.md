@@ -58,3 +58,7 @@ the 2nd for to revert the patches which applied earlier
                       patch -p1 < audio.patch
                       patch -R -p1 <audio.patch  
 
+
+Additional patches to be used for EGL is here 
+1.  EGL_NEEDS_FNW -> https://github.com/PAC-man/android_frameworks_native/commit/0c81fda74f6e7f9dc5f48bd00e4dbeaef12fdbc2
+
