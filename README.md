@@ -41,9 +41,6 @@ And for build rom, run this command in terminal from your working dir
 
         . build/envsetup.sh && brunch vivalto3gvndx
 
-But, the file rom still bootloop. here the logcat http://pastebin.com/iXswU6vh .
-If you know how to fix it, i would be very happy if you would help.
-
 Good luck and Happy building. (^_^)/
 
 
