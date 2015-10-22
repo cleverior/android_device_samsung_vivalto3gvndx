@@ -83,7 +83,7 @@ BOARD_HAS_NO_SELECT_BUTTON 			:= true
 TARGET_RECOVERY_PIXEL_FORMAT 			:= "RGBX_8888"
 
 # assert
-#TARGET_OTA_ASSERT_DEVICE 			:= SM-G313HZ, sm-g313hz, vivalto3gvn, vivalto3gvndx
+#TARGET_OTA_ASSERT_DEVICE 			:= vivalto3gvndx
 
 # graphics
 ## TARGET_GPU_PP_CORE := 2
