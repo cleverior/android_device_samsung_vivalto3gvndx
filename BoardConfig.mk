@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+LOCAL_PATH := device/samsung/vivalto3gvndx
+DEVICE_FOLDER := device/samsung/vivalto3gvndx
+
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
@@ -33,6 +36,8 @@ TARGET_BOOTLOADER_BOARD_NAME 			:= vivalto3gvndx
 BOARD_KERNEL_CMDLINE 				:= console=ttyS1,115200n8
 BOARD_KERNEL_BASE 				:= 0x00000000
 BOARD_KERNEL_PAGESIZE 				:= 2048
+
+BOARD_HAS_DOWNLOAD_MODE			:= true
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE 			:= 8388608
@@ -78,7 +83,7 @@ BOARD_HAS_NO_SELECT_BUTTON 			:= true
 TARGET_RECOVERY_PIXEL_FORMAT 			:= "RGBX_8888"
 
 # assert
-TARGET_OTA_ASSERT_DEVICE 			:= SM-G313HZ, sm-g313hz, vivalto3gvn, vivalto3gvndx
+#TARGET_OTA_ASSERT_DEVICE 			:= SM-G313HZ, sm-g313hz, vivalto3gvn, vivalto3gvndx
 
 # graphics
 ## TARGET_GPU_PP_CORE := 2
@@ -102,8 +107,8 @@ TW_FLASH_FROM_STORAGE 				:= true
 TW_NO_REBOOT_BOOTLOADER 			:= true
 TW_CUSTOM_CPU_TEMP_PATH				:= "/sys/devices/platform/sec-thermistor/temperature"
 TWHAVE_SELINUX 					:= true
-TARGET_RECOVERY_INITRC 				:= device/samsung/vivalto3gvndx/etc/init.r
-TARGET_RECOVERY_FSTAB 				:= device/samsung/vivalto3gvndx/etc/vivalto3gvndx.fstab
+TARGET_RECOVERY_INITRC 				:= device/samsung/vivalto3gvndx/etc/init.rc
+TARGET_RECOVERY_FSTAB 				:= device/samsung/vivalto3gvndx/etc/stock_recovery.fstab
 TW_HAS_DOWNLOAD_MODE				:= true
 DEVICE_RESOLUTION 				:= 480x800
 BOARD_USE_CUSTOM_RECOVERY_FONT 			:= \"roboto_10x18.h\"

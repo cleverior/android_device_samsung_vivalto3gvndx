@@ -19,9 +19,18 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 # languages
 PRODUCT_LOCALES := en_US fr_FR it_IT es_ES de_DE nl_NL cs_CZ pl_PL ja_JP zh_TW zh_CN ru_RU ko_KR nb_NO es_US da_DK el_GR tr_TR pt_PT pt_BR rm_CH sv_SE bg_BG ca_ES en_GB fi_FI hi_IN hr_HR hu_HU in_ID iw_IL lt_LT lv_LV ro_RO sk_SK sl_SI sr_RS uk_UA vi_VN tl_PH ar_EG fa_IR th_TH sw_TZ ms_MY af_ZA zu_ZA am_ET hi_IN
 
-PRODUCT_LOCALES += hdpi
+#PRODUCT_LOCALES += hdpi
 
 $(call inherit-product, build/target/product/full.mk)
+
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
+else
+	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -34,7 +43,7 @@ PRODUCT_COPY_FILES += \
 	device/samsung/vivalto3gvndx/init.scx15.rc:root/init.scx15.rc \
 	device/samsung/vivalto3gvndx/init.scx15.usb.rc:root/init.scx15.usb.rc \
 	device/samsung/vivalto3gvndx/ueventd.scx15.rc:root/ueventd.scx15.rc \
-        device/samsung/vivalto3gvndx/init.recovery.scx15.rc:root/init.recovery.scx15.rc
+    device/samsung/vivalto3gvndx/init.recovery.scx15.rc:root/init.recovery.scx15.rc
 
 PRODUCT_COPY_FILES += \
     	device/samsung/vivalto3gvndx/rootdir/etc/extra.fstab:recovery/root/etc/extra.fstab
@@ -43,7 +52,7 @@ PRODUCT_COPY_FILES += \
 # - helps pass CTS com.squareup.okhttp.internal.spdy.Spdy3Test#tooLargeDataFrame)
 # (property override must come before included property)
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=56m \
+    dalvik.vm.heapgrowthlimit=56m 
 
 # Dalvik heap config
 include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
@@ -55,6 +64,17 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 #ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0 \
 #ro.allow.mock.location=1 \
 #ro.debuggable=1 
+
+# For userdebug builds
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    #camera2.portability.force_api=1 \
+    #ro.multisim.simslotcount=2 \
+    #persist.radio.multisim.config=dsds \    
+	ro.secure=0 \
+    ro.adb.secure=0 \
+    ro.debuggable=1 \
+    persist.service.adb.enable=1 \
+	service.adb.root=1
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_vivalto3gvndx
